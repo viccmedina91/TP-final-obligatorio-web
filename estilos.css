@@ -1,0 +1,19 @@
+.carousel-inner img {
+    width: 90%;
+    height: 300px;
+    /* Tamaño fijo para todas las imágenes */
+    object-fit: cover;
+    /* Para ajustar las imágenes manteniendo su relación de aspecto */
+}
+
+.my-margin-left {
+    margin-left: auto;
+}
+
+#btnConfirmar {
+    margin-left: 70%;
+}
+
+#btnIngresar {
+    margin-left: 70%;
+}
