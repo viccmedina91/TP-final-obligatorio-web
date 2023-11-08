@@ -45,5 +45,16 @@ function validatarPasswordRegistracion() {
         alert("Las contraseñas no coinciden");
         return false;
     }
+    
+    var uppercaseRegex = /(?=.*[A-Z])/; // Verifica si  hay mayuscula
+    if (!uppercaseRegex.test(password)) {
+      alert('La contraseña debe contener al menos una letra mayúscula.');return false;
+      event.preventDefault(); // Evita que el formulario se envíe si la contraseña no es válida
+    }
     return true;
+   
 }
+document.getElementById('btnConfirmar').addEventListener('click', function(event) {
+    validatarPasswordRegistracion(); // Aquí llamas a tu función de validación
+    event.preventDefault(); // Esto evitará que el formulario se envíe si la validación no pasa
+  });
