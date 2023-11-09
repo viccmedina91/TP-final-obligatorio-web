@@ -1,7 +1,7 @@
 # Trabajo Final Obligatorio
 
 ## Integrantes
-* Nato, Agustín, LU:
+* Nato, Agustín, LU: 1163396
 * Medina M. Victoria, LU:1156231 
 
 ## Clonar el repositorio
