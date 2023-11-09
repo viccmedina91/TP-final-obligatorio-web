@@ -30,31 +30,57 @@ function calcularCalificacion(formulario) {
 function validateForm() {
     let password = document.getElementById('passwordLogin').value;
     let usuario = document.getElementById('emailLogin').value;
-    if ((password != "Password!") || (usuario != "example@gmail.com.ar")) {
-        alert("Contraseña Incorrecta");
+
+    if (password !== "Contra123" || usuario !== "agusnato@gmail.com") {
+        alert("Usuario o contraseña incorrectos. Por favor, verifique sus credenciales.");
         return false;
-    }
-    return true;
+    }  
+        window.location.href = "Progreso.html"; // Redirige a Progreso.html si las credenciales son correctas
+        return true;
+    
 }
 
-function validatarPasswordRegistracion() {
-    var password = document.getElementById('passwordRegister').value;
-    var confirmPassword = document.getElementById('passwordRegister2').value;
+document.getElementById('btnConfirmar').addEventListener('click', function(event) {
+    if (!validarCampos()) {
+        event.preventDefault(); // Evita que el formulario se envíe si la validación no pasa
+    }
+});
 
-    if (password != confirmPassword) {
+function validarCampos() {
+    var nombre = document.getElementById('nombreUsuarioRegister').value;
+    var apellido = document.getElementById('apellidoUsuarioRegister').value;
+    var email = document.getElementById('emailRegister').value;
+    var password = document.getElementById('passwordRegister').value;
+    var password2 = document.getElementById('passwordRegister2').value;
+    
+    if (nombre === '' || apellido === '' || email === '' || password === '' || password2 === '') {
+        alert('Por favor, complete todos los campos obligatorios.');
+        return false;
+    }
+
+    if (password !== password2) {
         alert("Las contraseñas no coinciden");
         return false;
     }
     
-    var uppercaseRegex = /(?=.*[A-Z])/; // Verifica si  hay mayuscula
+    var uppercaseRegex = /(?=.*[A-Z])/; // Verifica si hay mayúscula
     if (!uppercaseRegex.test(password)) {
-      alert('La contraseña debe contener al menos una letra mayúscula.');return false;
-      event.preventDefault(); // Evita que el formulario se envíe si la contraseña no es válida
+        alert('La contraseña debe contener al menos una letra mayúscula.');
+        return false;
     }
-    return true;
-   
+
+    if (!validateEmail(email)) {
+        alert('Por favor, ingrese un correo electrónico válido.');
+        return false;
+    }
+
+    // Redirecciona solo si todas las validaciones pasan
+    console.log("Redirigiendo a Progreso.html");
+    window.location.href = 'Progreso.html';
 }
-document.getElementById('btnConfirmar').addEventListener('click', function(event) {
-    validatarPasswordRegistracion(); // Aquí llamas a tu función de validación
-    event.preventDefault(); // Esto evitará que el formulario se envíe si la validación no pasa
-  });
+
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+

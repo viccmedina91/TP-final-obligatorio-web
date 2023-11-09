@@ -39,8 +39,8 @@
     </div>
   </nav>
   <h1>Iniciar Sesión</h1>
-  <form>
-
+  <form  onsubmit="return validateForm()">
+ 
     <div class="form-group p-4">
       <label for="exampleInputEmail1">Email</label>
       <input type="email" class="form-control" id="emailLogin" aria-describedby="emailHelp" placeholder="Ingrese email">
@@ -53,7 +53,9 @@
 
     <button type="submit" class="btn btn-primary my-margin-left" onclick="validateForm()"
       id="btnIngresar">Ingresar</button>
+      
   </form>
+  
   <script src="manejador.js"></script>
 
 
